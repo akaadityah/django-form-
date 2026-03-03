@@ -1,41 +1,70 @@
-# Django Contact Form Setup Guide (Ubuntu)
+# 📩 Django Contact Form Setup Guide (Ubuntu)
 
-This guide explains how to create and run a simple Contact Form
-(Name, Email, Description) using Django on Ubuntu.
+This guide explains how to create and run a simple **Contact Form** (Name, Email, Description) using Django on Ubuntu.
 
 ---
 
-## 1️⃣ Install Python and Django
+## 📌 Prerequisites
 
-Open Terminal:
+* Python 3
+* pip
+* Django
 
+Install Django:
+
+```bash
+pip install django
+```
+
+---
+
+## 🚀 1️⃣ Create Django Project
+
+```bash
 django-admin startproject myproject
 cd myproject
+```
 
-2️⃣ Create Django Project
+---
 
-django-admin startproject myproject
-cd myproject
+## 📦 2️⃣ Create App
 
-3️⃣ Create App
+```bash
 python3 manage.py startapp contact
+```
 
-Step 4: Register App
+---
 
-Open settings file:
+## ⚙️ 3️⃣ Register App
+
+Open:
+
+```
 myproject/settings.py
+```
 
-Add inside INSTALLED_APPS:
+Add inside `INSTALLED_APPS`:
 
+```python
 'contact',
+```
 
-5️⃣ Create Template Folder
-mkdir contact/templates
-contact/templates/contact.html
+---
 
+## 📁 4️⃣ Create Template Folder
 
-Paste this inside contact.html:
+```bash
+mkdir -p contact/templates
+touch contact/templates/contact.html
+```
 
+---
+
+## 📝 5️⃣ Add HTML Form
+
+Paste inside `contact/templates/contact.html`:
+
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -62,14 +91,21 @@ Paste this inside contact.html:
 
 </body>
 </html>
+```
 
-6️⃣ Create View
+---
+
+## 🧠 6️⃣ Create View
 
 Open:
+
+```
 contact/views.py
+```
 
 Replace with:
 
+```python
 from django.shortcuts import render
 
 def contact_view(request):
@@ -81,28 +117,42 @@ def contact_view(request):
         print(name, email, description)
 
     return render(request, "contact.html")
+```
 
+---
 
-7️⃣ Create App URLs
+## 🔗 7️⃣ Create App URLs
+
+Create:
+
+```
 contact/urls.py
+```
 
 Add:
 
+```python
 from django.urls import path
 from .views import contact_view
 
 urlpatterns = [
     path('', contact_view, name='contact'),
 ]
+```
 
-8️⃣ Connect URLs to Project
+---
+
+## 🌐 8️⃣ Connect URLs to Project
 
 Open:
 
-nano myproject/urls.py
+```
+myproject/urls.py
+```
 
-Update file:
+Update:
 
+```python
 from django.contrib import admin
 from django.urls import path, include
 
@@ -110,13 +160,40 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('contact/', include('contact.urls')),
 ]
+```
 
-9️⃣ Run Server
+---
+
+## ▶️ 9️⃣ Run Server
+
+```bash
 python3 manage.py runserver
+```
 
 Open browser:
 
+```
 http://127.0.0.1:8000/contact/
+```
+
+---
+
+## ✅ Result
+
+You now have a working Django Contact Form.
+Submitted data will be printed in the terminal.
+
+---
+
+## 🔮 Future Improvements
+
+* Save data to database
+* Add success message
+* Add form validation
+* Use Django Forms
+* Add Bootstrap styling
+
+---
 
 
-
+⭐ Happy Coding!
