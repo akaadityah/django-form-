@@ -10,6 +10,28 @@ After submitting the form, the entered feedback is displayed on a **success page
 
 ---
 
+# 📸 Screenshots
+
+## Feedback Form Page
+
+<img width="700" alt="Feedback Form" src="screenshots/feedback_form.png">
+
+This page allows users to enter:
+
+* Name
+* Rating
+* Comment
+
+---
+
+## Feedback Success Page
+
+<img width="700" alt="Success Page" src="screenshots/feedback_success.png">
+
+After submitting the form, users can see their submitted feedback.
+
+---
+
 # 📌 Prerequisites
 
 Make sure the following are installed:
@@ -38,7 +60,7 @@ django-admin --version
 django-admin startproject feedbackproject
 ```
 
-Move into the project directory:
+Move into project directory:
 
 ```bash
 cd feedbackproject
@@ -78,7 +100,7 @@ Open:
 feedbackproject/settings.py
 ```
 
-Add the app inside `INSTALLED_APPS`:
+Add inside `INSTALLED_APPS`:
 
 ```python
 INSTALLED_APPS = [
@@ -97,8 +119,6 @@ Open:
 ```
 feedbackapp/models.py
 ```
-
-Add the following code:
 
 ```python
 from django.db import models
@@ -121,8 +141,6 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 
-This will create the **SQLite database**.
-
 ---
 
 # 📋 6️⃣ Create forms.py
@@ -132,8 +150,6 @@ Create file:
 ```
 feedbackapp/forms.py
 ```
-
-Add:
 
 ```python
 from django import forms
@@ -164,8 +180,6 @@ Open:
 ```
 feedbackapp/views.py
 ```
-
-Add:
 
 ```python
 from django.shortcuts import render, redirect
@@ -299,37 +313,36 @@ http://127.0.0.1:8000
 
 ---
 
-# ✅ Output
-
-### Page 1
+# 📂 Project Folder Structure
 
 ```
-Feedback Form
-Name
-Rating
-Comment
-Submit
-```
-
-### Page 2
-
-```
-Thank You For Your Feedback
-Name: Aditya
-Rating: 5
-Comment: Good Website
+feedbackproject
+│
+├── feedbackapp
+│   ├── templates
+│   │   ├── feedback.html
+│   │   └── success.html
+│   ├── forms.py
+│   ├── models.py
+│   ├── views.py
+│   └── urls.py
+│
+├── feedbackproject
+│   └── settings.py
+│
+└── manage.py
 ```
 
 ---
 
 # 🚀 Future Improvements
 
-* Save feedback to admin panel
-* Add Bootstrap styling
-* Add rating stars ⭐
-* Show feedback list page
-* Add validation
+* Add Bootstrap UI
+* Add star rating ⭐⭐⭐⭐⭐
+* Show all feedback list
+* Add admin panel view
+* Add form validation
 
 ---
 
-⭐ Simple Django Project for Beginners.
+⭐ Beginner-friendly Django project.
