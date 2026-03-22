@@ -24,14 +24,6 @@ This page allows users to enter:
 
 ---
 
-## Feedback Success Page
-
-<img width="700" alt="Success Page" src="screenshots/feedback_success.png">
-
-After submitting the form, users can see their submitted feedback.
-
----
-
 # 📌 Prerequisites
 
 Make sure the following are installed:
